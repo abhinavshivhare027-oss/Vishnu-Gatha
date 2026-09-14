@@ -1,1 +1,495 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>विष्णु गाथा | पौराणिक कथाओं का दिव्य संसार</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Noto Serif Devanagari","Mangal",serif;
+    background:
+        radial-gradient(circle at top,#fff4c7 0%,#f8df9b 35%,#e9c46a 100%);
+    color:#3b2108;
+    min-height:100vh;
+}
+
+/* HEADER */
+header{
+    text-align:center;
+    padding:35px 15px 30px;
+    background:
+        linear-gradient(135deg,#4b0875,#72108f,#4b0875);
+    color:#fff4c2;
+    border-bottom:6px solid #d4af37;
+    box-shadow:0 5px 20px #4b087588;
+}
+
+.om{
+    font-size:42px;
+    color:#ffd700;
+    margin-bottom:5px;
+}
+
+.logo{
+    font-size:38px;
+    font-weight:bold;
+    text-shadow:
+        0 0 5px #ffd700,
+        2px 2px 4px #180020;
+}
+
+.tagline{
+    margin-top:8px;
+    font-size:17px;
+    color:#fff8dc;
+}
+
+/* NAVIGATION */
+nav{
+    background:#8b1e0e;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    border-bottom:3px solid #e5b93f;
+}
+
+nav a{
+    color:#fff4c2;
+    text-decoration:none;
+    padding:13px 18px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover{
+    background:#d49a18;
+    color:#421300;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    padding:55px 20px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero:before,
+.hero:after{
+    content:"✦";
+    position:absolute;
+    color:#b8860b;
+    font-size:70px;
+    opacity:.25;
+}
+
+.hero:before{
+    left:5%;
+    top:20px;
+}
+
+.hero:after{
+    right:5%;
+    bottom:20px;
+}
+
+.hero h1{
+    color:#75120b;
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:750px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.9;
+}
+
+.divider{
+    width:180px;
+    height:3px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #a66a00,
+        #ffd700,
+        #a66a00,
+        transparent
+    );
+    margin:20px auto;
+}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:13px 30px;
+    border-radius:30px;
+    background:linear-gradient(135deg,#c76b00,#f2b705,#c76b00);
+    color:#3b1600;
+    text-decoration:none;
+    font-weight:bold;
+    border:2px solid #fff0a6;
+    box-shadow:0 5px 15px #7c350055;
+}
+
+/* SECTION */
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:35px 20px;
+}
+
+.section-title{
+    text-align:center;
+    color:#67100a;
+    font-size:27px;
+    margin-bottom:25px;
+}
+
+/* STORY CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:
+        linear-gradient(145deg,#fffdf0,#f8e3a7);
+    border:2px solid #bd8b16;
+    border-radius:18px;
+    padding:25px 18px;
+    text-align:center;
+    box-shadow:
+        0 7px 18px #6d390033,
+        inset 0 0 20px #fff3b0;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 12px 25px #5c240055;
+}
+
+.card-icon{
+    font-size:45px;
+    margin-bottom:8px;
+}
+
+.card h3{
+    color:#65120b;
+    margin-bottom:8px;
+    font-size:20px;
+}
+
+.card p{
+    line-height:1.7;
+    font-size:15px;
+}
+
+.card a{
+    display:inline-block;
+    margin-top:13px;
+    color:#8b1e0e;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+/* DASHAVATAR */
+.avatar{
+    background:
+        linear-gradient(135deg,#34105c,#54127a,#32104f);
+    color:#fff3c4;
+    max-width:none;
+    text-align:center;
+    border-top:4px solid #d4af37;
+    border-bottom:4px solid #d4af37;
+}
+
+.avatar .section-title{
+    color:#ffd966;
+}
+
+.avatar-grid{
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px;
+}
+
+.avatar-item{
+    padding:15px 8px;
+    border:1px solid #d4af37;
+    border-radius:12px;
+    background:#ffffff12;
+    color:#ffeeb0;
+}
+
+/* QUOTE */
+.quote{
+    text-align:center;
+    padding:45px 20px;
+    font-size:21px;
+    color:#641006;
+    font-weight:bold;
+}
+
+.quote span{
+    display:block;
+    margin-top:10px;
+    font-size:15px;
+    color:#7a4c16;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px 15px;
+    background:#270b38;
+    color:#ffe8a3;
+    border-top:4px solid #d4af37;
+}
+
+footer h2{
+    color:#ffd75a;
+    margin-bottom:8px;
+}
+
+footer p{
+    font-size:14px;
+    margin:5px;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+    .logo{
+        font-size:30px;
+    }
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .avatar-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:520px){
+
+    .hero h1{
+        font-size:25px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .avatar-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    nav a{
+        padding:10px 12px;
+        font-size:14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="om">ॐ</div>
+
+    <div class="logo">
+        🪷 विष्णु गाथा 🪷
+    </div>
+
+    <div class="tagline">
+        श्रीहरि विष्णु की दिव्य कथाओं और पौराणिक प्रसंगों का संसार
+    </div>
+
+</header>
+
+
+<nav>
+    <a href="#">🏠 मुख्य पृष्ठ</a>
+    <a href="#katha">📖 कथाएँ</a>
+    <a href="#avatar">🔱 दशावतार</a>
+    <a href="#about">🪔 परिचय</a>
+</nav>
+
+
+<div class="hero">
+
+    <h1>॥ श्रीहरि विष्णवे नमः ॥</h1>
+
+    <div class="divider"></div>
+
+    <p>
+        भारतीय पौराणिक कथाओं, भगवान श्रीहरि विष्णु,
+        उनके अवतारों और दिव्य प्रसंगों के आध्यात्मिक संसार में
+        आपका स्वागत है।
+    </p>
+
+    <a href="#katha" class="btn">
+        ✨ कथा पढ़ना शुरू करें ✨
+    </a>
+
+</div>
+
+
+<section id="katha">
+
+    <h2 class="section-title">
+        🪷 पौराणिक कथाओं का दिव्य संसार 🪷
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-icon">🐚</div>
+            <h3>श्रीहरि विष्णु</h3>
+            <p>
+                भगवान श्रीहरि विष्णु से संबंधित
+                पौराणिक कथाओं का संग्रह।
+            </p>
+            <a href="#">कथा पढ़ें →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🔱</div>
+            <h3>दशावतार</h3>
+            <p>
+                भगवान विष्णु के दिव्य अवतारों
+                से संबंधित कथाएँ।
+            </p>
+            <a href="#avatar">देखें →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🪷</div>
+            <h3>देवी-देवताओं की कथाएँ</h3>
+            <p>
+                भारतीय पौराणिक परंपरा से जुड़ी
+                दिव्य और प्रेरणादायक कथाएँ।
+            </p>
+            <a href="#">कथा पढ़ें →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">📜</div>
+            <h3>पुराणों की कथाएँ</h3>
+            <p>
+                प्राचीन पौराणिक परंपराओं से
+                संबंधित कथाओं का संग्रह।
+            </p>
+            <a href="#">पढ़ें →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🙏</div>
+            <h3>भक्ति कथाएँ</h3>
+            <p>
+                भगवान और उनके भक्तों से संबंधित
+                भक्ति प्रसंग।
+            </p>
+            <a href="#">पढ़ें →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🕉️</div>
+            <h3>धार्मिक ज्ञान</h3>
+            <p>
+                भारतीय धार्मिक और पौराणिक
+                परंपराओं से जुड़ी जानकारी।
+            </p>
+            <a href="#">जानें →</a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="avatar" class="avatar">
+
+    <h2 class="section-title">
+        🔱 भगवान विष्णु के दशावतार 🔱
+    </h2>
+
+    <div class="avatar-grid">
+
+        <div class="avatar-item">🐟 मत्स्य</div>
+        <div class="avatar-item">🐢 कूर्म</div>
+        <div class="avatar-item">🐗 वराह</div>
+        <div class="avatar-item">🦁 नरसिंह</div>
+        <div class="avatar-item">👑 वामन</div>
+        <div class="avatar-item">⚔️ परशुराम</div>
+        <div class="avatar-item">🏹 श्रीराम</div>
+        <div class="avatar-item">🪈 श्रीकृष्ण</div>
+        <div class="avatar-item">🧘 बुद्ध</div>
+        <div class="avatar-item">⚔️ कल्कि</div>
+
+    </div>
+
+</section>
+
+
+<div class="quote">
+
+    “॥ ॐ नमो भगवते वासुदेवाय ॥”
+
+    <span>
+        🪷 श्रीहरि विष्णु को समर्पित 🪷
+    </span>
+
+</div>
+
+
+<section id="about">
+
+    <h2 class="section-title">
+        🪔 विष्णु गाथा
+    </h2>
+
+    <p style="text-align:center;line-height:2;">
+        विष्णु गाथा एक ऐसा मंच है जहाँ
+        पौराणिक कथाओं और भगवान श्रीहरि विष्णु
+        से संबंधित धार्मिक प्रसंगों को एक सुंदर
+        रूप में प्रस्तुत किया जाएगा।
+    </p>
+
+</section>
+
+
+<footer>
+
+    <h2>🪷 विष्णु गाथा 🪷</h2>
+
+    <p>॥ श्रीहरि विष्णु की जय ॥</p>
+
+    <p>© 2026 Vishnu Gatha</p>
+
+</footer>
+
+</body>
+  </html>
