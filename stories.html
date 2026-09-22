@@ -1,21 +1,560 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="hi">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>कथाओं की सूची</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>श्रीहरि विष्णु की कथाएँ</title>
+
+
+    <style>
+
+        /* =========================
+           पूरी वेबसाइट
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            font-family:
+                "Noto Sans Devanagari",
+                "Mangal",
+                sans-serif;
+
+            color: #3b1f0b;
+
+            background:
+                linear-gradient(
+                    rgba(255, 248, 225, 0.88),
+                    rgba(255, 238, 190, 0.92)
+                ),
+                url("vishnu-background.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+
+        /* =========================
+           ऊपर का Header
+        ========================= */
+
+        header {
+
+            text-align: center;
+
+            padding: 35px 15px 30px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6d1700,
+                    #b84a00,
+                    #8b2500
+                );
+
+            border-bottom:
+                4px solid #f6c453;
+
+            box-shadow:
+                0 4px 15px
+                rgba(0, 0, 0, 0.3);
+        }
+
+
+        /* ॐ */
+
+        .om {
+
+            font-size: 55px;
+
+            line-height: 1;
+
+            color: #ffd86b;
+
+            text-shadow:
+                0 0 10px #fff0a3,
+                0 0 20px #ffb300;
+
+            margin-bottom: 12px;
+        }
+
+
+        /* मुख्य शीर्षक */
+
+        header h1 {
+
+            margin: 0;
+
+            font-size: 34px;
+
+            font-weight: bold;
+
+            text-shadow:
+                2px 2px 4px
+                rgba(0, 0, 0, 0.4);
+        }
+
+
+        /* छोटा वाक्य */
+
+        header p {
+
+            margin: 12px 0 0;
+
+            font-size: 18px;
+
+            color: #ffe9a6;
+        }
+
+
+        /* =========================
+           Main
+        ========================= */
+
+        main {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            padding: 35px 18px 50px;
+        }
+
+
+        /* कथाओं की सूची */
+
+        .section-title {
+
+            text-align: center;
+
+            color: #7b1e00;
+
+            font-size: 30px;
+
+            margin-bottom: 30px;
+
+            font-weight: bold;
+        }
+
+
+        .section-title::before {
+
+            content: "🪷 ";
+
+        }
+
+
+        .section-title::after {
+
+            content: " 🪷";
+
+        }
+
+
+        /* =========================
+           कथा Cards
+        ========================= */
+
+        .story-card {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            text-decoration: none;
+
+            color: #3b1f0b;
+
+            background:
+                rgba(255, 253, 245, 0.94);
+
+            border:
+
+                2px solid #d9a52e;
+
+            border-radius: 18px;
+
+            padding: 20px 22px;
+
+            margin: 18px 0;
+
+            font-size: 21px;
+
+            font-weight: bold;
+
+            box-shadow:
+
+                0 6px 18px
+                rgba(112, 61, 0, 0.18);
+
+            transition:
+                transform 0.25s,
+                box-shadow 0.25s,
+                background 0.25s;
+        }
+
+
+        /* Card के चारों तरफ हल्की golden line */
+
+        .story-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 5px;
+
+            border:
+
+                1px solid
+                rgba(218, 165, 46, 0.35);
+
+            border-radius: 14px;
+
+            pointer-events: none;
+        }
+
+
+        /* Icon */
+
+        .story-icon {
+
+            width: 48px;
+
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0a6,
+                    #f4c542
+                );
+
+            font-size: 25px;
+
+            box-shadow:
+                0 3px 8px
+                rgba(120, 70, 0, 0.2);
+        }
+
+
+        /* Card पर mouse / touch */
+
+        .story-card:hover {
+
+            transform:
+                translateY(-5px)
+                scale(1.01);
+
+            background:
+                #fff7d7;
+
+            box-shadow:
+
+                0 10px 25px
+                rgba(112, 61, 0, 0.28);
+        }
+
+
+        /* Click करने पर */
+
+        .story-card:active {
+
+            transform:
+                scale(0.97);
+        }
+
+
+        /* =========================
+           नीचे का भाग
+        ========================= */
+
+        .devotional-message {
+
+            text-align: center;
+
+            margin-top: 40px;
+
+            color: #7b1e00;
+
+            font-size: 19px;
+
+            font-weight: bold;
+        }
+
+
+        .devotional-message .symbol {
+
+            display: block;
+
+            font-size: 30px;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================
+           Footer
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 25px 15px;
+
+            color: #ffe9a6;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #4c1000,
+                    #741c00
+                );
+
+            border-top:
+                3px solid #d9a52e;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           Mobile
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            header {
+
+                padding: 28px 12px;
+            }
+
+
+            .om {
+
+                font-size: 48px;
+            }
+
+
+            header h1 {
+
+                font-size: 28px;
+            }
+
+
+            header p {
+
+                font-size: 16px;
+            }
+
+
+            main {
+
+                padding:
+                    28px 14px 40px;
+            }
+
+
+            .section-title {
+
+                font-size: 26px;
+            }
+
+
+            .story-card {
+
+                padding: 17px;
+
+                font-size: 19px;
+
+                border-radius: 16px;
+            }
+
+
+            .story-icon {
+
+                width: 42px;
+
+                height: 42px;
+
+                font-size: 22px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
-<body style="background-color: yellow;">
 
-    <h1>श्रीहरि विष्णु की कथाएँ</h1>
+<body>
 
-    <h2>कथाओं की सूची</h2>
 
-    <p>1. भक्त प्रह्लाद की कथा</p>
-    <p>2. ध्रुव की कथा</p>
-    <p>3. गजेन्द्र मोक्ष की कथा</p>
-    <p>4. समुद्र मंथन की कथा</p>
+    <!-- =========================
+         Header
+    ========================= -->
+
+    <header>
+
+        <div class="om">ॐ</div>
+
+        <h1>
+            श्रीहरि विष्णु की कथाएँ
+        </h1>
+
+        <p>
+            भक्ति • श्रद्धा • सनातन कथाएँ
+        </p>
+
+    </header>
+
+
+
+    <!-- =========================
+         Main Content
+    ========================= -->
+
+    <main>
+
+        <h2 class="section-title">
+            कथाओं की सूची
+        </h2>
+
+
+        <!-- कथा 1 -->
+
+        <a
+            href="prahlad-katha.html"
+            class="story-card"
+        >
+
+            <span class="story-icon">
+                🪷
+            </span>
+
+            <span>
+                भक्त प्रह्लाद की कथा
+            </span>
+
+        </a>
+
+
+
+        <!-- कथा 2 -->
+
+        <a
+            href="dhruv-katha.html"
+            class="story-card"
+        >
+
+            <span class="story-icon">
+                🪔
+            </span>
+
+            <span>
+                ध्रुव की कथा
+            </span>
+
+        </a>
+
+
+
+        <!-- कथा 3 -->
+
+        <a
+            href="gajendra-moksha.html"
+            class="story-card"
+        >
+
+            <span class="story-icon">
+                🐘
+            </span>
+
+            <span>
+                गजेन्द्र मोक्ष की कथा
+            </span>
+
+        </a>
+
+
+
+        <!-- कथा 4 -->
+
+        <a
+            href="samudra-manthan.html"
+            class="story-card"
+        >
+
+            <span class="story-icon">
+                🐚
+            </span>
+
+            <span>
+                समुद्र मंथन की कथा
+            </span>
+
+        </a>
+
+
+
+        <!-- नीचे का संदेश -->
+
+        <div class="devotional-message">
+
+            <span class="symbol">
+                🕉️
+            </span>
+
+            श्रीहरि विष्णु की जय
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================
+         Footer
+    ========================= -->
+
+    <footer>
+
+        🪔 श्रद्धा और भक्ति के साथ कथाएँ पढ़ें 🪔
+
+        <br><br>
+
+        © श्रीहरि विष्णु की कथाएँ
+
+    </footer>
+
 
 </body>
+
 </html>
